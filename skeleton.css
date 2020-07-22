@@ -1,0 +1,156 @@
+/*
+ * Variables
+ */
+
+:root {
+    --color: #e2e2e2;
+    --gradirent: transparent 0;
+    --logo: linear-gradient(var(--color) 40px, var(--gradirent));
+    --logo-width: 200px;
+    --menu-item: linear-gradient(var(--color) 24px, var(--gradirent));
+    --menu-item-width: 42px;
+    --menu-item-margin-left: calc(var(--menu-item-width) + 42px);
+    --menu-item-margin-top: 27px;
+    --menu-social: radial-gradient( circle 12px at center, var(--color) 100%, transparent 0);
+    --menu-social-width: 24px;
+    --menu-social-top: -8px;
+    --menu-mob: linear-gradient(var(--color) 30px, var(--gradirent));
+    --menu-mob-width: 30px;
+    --title-height: 52px;
+    --title-page: linear-gradient(#e2e2e2 var(--title-height), transparent 0);
+    --title-page-width: 500px;
+    --subtitle: linear-gradient( #e2e2e2 var(--menu-item-margin-top), transparent 0);
+    --subtitle-width: calc(var(--title-page-width) / 3 * 2);
+    --img-full-height: calc(55vh - 64px);
+    --img-full-height-desk: calc(60vh - 64px);
+    --img-first: linear-gradient(#e2e2e2 var(--img-full-height), transparent 0);
+    --img-first-desk: linear-gradient( #e2e2e2 var(--img-full-height-desk), transparent 0);
+    --img-sepatator-size: 8px;
+    --img-separator-vert: linear-gradient( #ffffff var(--img-full-height-desk), transparent 0);
+    --img-separator-hor: linear-gradient( #ffffff var(--img-sepatator-size), transparent 0);
+    --blur: linear-gradient( 90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+    --blur-width: 200px;
+    --blur-size: var(--blur-width) var(--img-full-height-desk);
+}
+
+body {
+    background-color: #fff;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.skeleton {
+    width: 100%;
+    height: 100vh;
+    /* 
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px; */
+    /* margin-top: 3rem !important; */
+}
+
+.sk-top:empty::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 90px;
+    border-radius: 1rem;
+    background-repeat: no-repeat;
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0))), var(--logo), var(--menu-mob);
+    background-image: var(--blur), var(--logo), var(--menu-mob);
+    background-size: var(--blur-size), var(--logo-width), var(--menu-mob-width);
+    background-position: -100% 0, 15px 25px, right 40px top 30px;
+    -webkit-animation: loading 1.5s infinite;
+    animation: loading-top 1.5s infinite;
+}
+
+.sk-mid:empty::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 240px;
+    border-radius: 1rem;
+    background-repeat: no-repeat;
+    background-image: var(--blur), var(--title-page), var(--subtitle);
+    background-size: var(--blur-size), 75%, 60%;
+    background-position: -100% 0, 50% 70px, 50% 134px;
+    animation: loading-mid 1.5s infinite;
+}
+
+.sk-bot:empty::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: calc(60vh - 64px);
+    /* border-radius: 1rem; */
+    background-repeat: no-repeat;
+    background-image: var(--blur), var(--img-first);
+    background-size: var(--blur-size), 100%;
+    background-position: -100% 0;
+    animation: loading-bot 1.5s infinite;
+}
+
+@keyframes loading-top {
+    to {
+        background-position: 230% 0, 15px 25px, right 40px top 30px;
+    }
+}
+
+@keyframes loading-mid {
+    to {
+        background-position: 210% 0, 50% 70px, 50% 134px;
+    }
+}
+
+@keyframes loading-bot {
+    to {
+        background-position: 250% 0, 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .skeleton {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1140px;
+    }
+    .sk-top:empty::after {
+        background-image: -webkit-gradient( linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0))), var(--logo), var(--menu-item), var(--menu-item), var(--menu-item), var(--menu-item), var(--menu-social), var(--menu-social), var(--menu-social), var(--menu-social);
+        background-image: var(--blur), var(--logo), var(--menu-item), var(--menu-item), var(--menu-item), var(--menu-item), var(--menu-social), var(--menu-social), var(--menu-social), var(--menu-social);
+        background-size: var(--blur-size), var(--logo-width), var(--menu-item-width), var(--menu-item-width), var(--menu-item-width), var(--menu-item-width), var(--menu-social-width), var(--menu-social-width), var(--menu-social-width), var(--menu-social-width);
+        background-position: -10% 0, 15px 25px, 50% var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left)) var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left) * 2) var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left) * 3) var(--menu-item-margin-top), right var(--menu-social-top), right calc(var(--menu-social-width) * 1.5) top var(--menu-social-top), right calc(var(--menu-social-width) * 3) top var(--menu-social-top), right calc(var(--menu-social-width) * 4.5) top var(--menu-social-top);
+    }
+    .sk-mid:empty::after {
+        background-size: var(--blur-size), var(--title-page-width), var(--subtitle-width);
+    }
+    .sk-bot:empty::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: calc(60vh - 64px);
+        border-radius: 1rem;
+        background-repeat: no-repeat;
+        background-image: var(--blur), var(--img-separator-vert), var(--img-separator-vert), var(--img-separator-hor), var(--img-first-desk);
+        background-size: var(--blur-size), var(--img-sepatator-size), var(--img-sepatator-size), 50%, 1140px;
+        background-position: -10% 0, center, 75% 0, 100% calc(var(--img-full-height-desk) / 2), 0;
+    }
+    @keyframes loading-top {
+        to {
+            background-position: 130% 0, 15px 25px, 50% var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left)) var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left) * 2) var(--menu-item-margin-top), calc(50% + var(--menu-item-margin-left) * 3) var(--menu-item-margin-top), right var(--menu-social-top), right calc(var(--menu-social-width) * 1.5) top var(--menu-social-top), right calc(var(--menu-social-width) * 3) top var(--menu-social-top), right calc(var(--menu-social-width) * 4.5) top var(--menu-social-top);
+        }
+    }
+    @keyframes loading-mid {
+        to {
+            background-position: 110% 0, 50% 70px, 50% 134px;
+        }
+    }
+    @keyframes loading-bot {
+        to {
+            background-position: 150% 0, center, 75% 0, 100% calc(var(--img-full-height-desk) / 2), 0;
+        }
+    }
+}
